@@ -7,17 +7,9 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
-    "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "start": "npm-run-all --parallel dev:*",
+    "dev:api": "nest start --watch",
+    "dev:client": "rollup -cw"
   },
   "dependencies": {
     "@nestjs/common": "^8.1.1",
@@ -32,6 +24,9 @@
     "@nestjs/cli": "^8.1.3",
     "@nestjs/schematics": "^8.0.4",
     "@nestjs/testing": "^8.1.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.3",
+    "@tsconfig/svelte": "^3.0.0",
     "@types/express": "^4.17.13",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.1",
@@ -42,14 +37,18 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.1",
     "jest": "^27.3.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.4.1",
+    "rollup": "^2.75.6",
+    "rollup-plugin-svelte": "^7.1.0",
     "source-map-support": "^0.5.20",
     "supertest": "^6.1.6",
+    "svelte-preprocess": "^4.10.7",
     "ts-jest": "^27.0.7",
     "ts-loader": "^9.2.6",
     "ts-node": "^10.3.0",
     "tsconfig-paths": "^3.11.0",
-    "typescript": "^4.4.4"
+    "typescript": "^4.7.4"
   },
   "jest": {
     "moduleFileExtensions": [
