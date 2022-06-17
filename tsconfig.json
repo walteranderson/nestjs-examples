@@ -1,4 +1,6 @@
 {
+  "include": ["src/**/*"],
+  "exclude": ["src/components/**/*"],
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,
