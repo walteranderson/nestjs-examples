@@ -1,18 +1,18 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  let name = '';
+  let message = '';
 
   onMount(() => {
-    fetch('/api/name')
+    fetch('/api/message')
       .then(response => response.json())
-      .then(data => name = data.name);
+      .then(data => message = data.message);
   });
 
 </script>
 
-{#if name}
-  <p>Hello {name}, from Svelte!</p>
+{#if message}
+  <p>{message}, from Svelte!</p>
 {:else}
   <p>Loading</p>
 {/if}

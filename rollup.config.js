@@ -6,7 +6,7 @@ import sveltePreprocess from 'svelte-preprocess';
 export default {
   input: 'src/client/main.ts',
   output: {
-    file: 'public/bundle/bundle.js',
+    file: 'public/assets/bundle.js',
   },
   plugins: [
     svelte({

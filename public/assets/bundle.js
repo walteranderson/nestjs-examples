@@ -291,28 +291,25 @@ function create_else_block(ctx) {
 	};
 }
 
-// (10:0) {#if name}
+// (10:0) {#if message}
 function create_if_block(ctx) {
 	let p;
 	let t0;
 	let t1;
-	let t2;
 
 	return {
 		c() {
 			p = element("p");
-			t0 = text("Hello ");
-			t1 = text(/*name*/ ctx[0]);
-			t2 = text(", from Svelte!");
+			t0 = text(/*message*/ ctx[0]);
+			t1 = text(", from Svelte!");
 		},
 		m(target, anchor) {
 			insert(target, p, anchor);
 			append(p, t0);
 			append(p, t1);
-			append(p, t2);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*name*/ 1) set_data(t1, /*name*/ ctx[0]);
+			if (dirty & /*message*/ 1) set_data(t0, /*message*/ ctx[0]);
 		},
 		d(detaching) {
 			if (detaching) detach(p);
@@ -324,7 +321,7 @@ function create_fragment(ctx) {
 	let if_block_anchor;
 
 	function select_block_type(ctx, dirty) {
-		if (/*name*/ ctx[0]) return create_if_block;
+		if (/*message*/ ctx[0]) return create_if_block;
 		return create_else_block;
 	}
 
@@ -363,13 +360,13 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
-	let name = '';
+	let message = '';
 
 	onMount(() => {
-		fetch('/api/name').then(response => response.json()).then(data => $$invalidate(0, name = data.name));
+		fetch('/api/message').then(response => response.json()).then(data => $$invalidate(0, message = data.message));
 	});
 
-	return [name];
+	return [message];
 }
 
 class App extends SvelteComponent {

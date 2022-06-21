@@ -8,14 +8,14 @@
     "prebuild": "rimraf dist",
     "build": "nest build",
     "start": "npm-run-all --parallel dev:*",
-    "dev:api": "nest start --watch",
+    "dev:server": "nest start --watch",
     "dev:client": "rollup -cw"
   },
   "dependencies": {
     "@nestjs/common": "^8.1.1",
     "@nestjs/core": "^8.1.1",
     "@nestjs/platform-express": "^8.1.1",
-    "hbs": "^4.2.0",
+    "@nestjs/serve-static": "^2.2.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.4.0"
