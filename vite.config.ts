@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [svelte()],
     clearScreen: false,
+    root: 'src/client',
     build: {
       outDir: 'public',
     },

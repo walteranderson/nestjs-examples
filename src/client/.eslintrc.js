@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2019,
@@ -8,6 +9,7 @@ module.exports = {
     extraFileExtensions: ['.svelte'],
   },
   plugins: ['svelte3', '@typescript-eslint'],
+  ignorePatterns: ['.eslintrc.js'],
   env: {
     es6: true,
     browser: true,
