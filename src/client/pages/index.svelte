@@ -1,5 +1,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+
+  const test: Record<string, string> = {
+    test: 5,
+  };
+
   let message = '';
   onMount(() => {
     fetch('/api/message')

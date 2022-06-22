@@ -1,6 +1,4 @@
 {
-  "include": ["src/server"],
-  "exclude": ["src/client/*"],
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,
@@ -14,5 +12,13 @@
     "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true
-  }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "public/*",
+    "src/client/*"
+  ]
 }
