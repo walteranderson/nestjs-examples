@@ -1,4 +1,6 @@
 {
+  "include": ["src/server"],
+  "exclude": ["src/client/*"],
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,

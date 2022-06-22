@@ -4,16 +4,17 @@ import typescript from '@rollup/plugin-typescript';
 import sveltePreprocess from 'svelte-preprocess';
 
 export default {
+  inlineDynamicImports: true,
   input: 'src/client/main.ts',
   output: {
+    sourcemap: true,
     file: 'public/assets/bundle.js',
   },
   plugins: [
     svelte({
-      include: 'src/client/**/*.svelte',
       preprocess: sveltePreprocess(),
     }),
     typescript({ tsconfig: 'src/client/tsconfig.json' }),
-    resolve({ browser: true }),
+    resolve({ browser: true, dedupe: ['svelte'] }),
   ],
 };
