@@ -9,7 +9,7 @@
     "build": "nest build",
     "build:client": "echo TODO",
     "serve": "node dist/main",
-    "start": "npm-run-all --parallel dev:*",
+    "dev": "run-p dev:*",
     "dev:server": "nest start --watch --preserveWatchOutput",
     "dev:routify": "routify",
     "dev:vite": "vite"
@@ -55,9 +55,6 @@
     "tslib": "^2.4.0",
     "typescript": "^4.7.4",
     "vite": "^2.9.12"
-  },
-  "routify": {
-    "pages": "./src/client/pages"
   },
   "jest": {
     "moduleFileExtensions": [

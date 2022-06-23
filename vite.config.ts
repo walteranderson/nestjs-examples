@@ -8,9 +8,10 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [svelte()],
     clearScreen: false,
-    root: 'src/client',
+    root: 'frontend',
     build: {
-      outDir: 'public',
+      outDir: '../public',
+      emptyOutDir: true,
     },
     server: {
       proxy: {
